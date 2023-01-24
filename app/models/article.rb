@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  # Reference to validation login inside of concern
+  include Visible
   has_many :comments
   
   validates :title, presence: true
