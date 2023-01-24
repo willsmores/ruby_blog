@@ -37,7 +37,14 @@ class ArticlesController < ApplicationController
     end
   end
 
-  # Strong Parameters to filter params
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to root_path
+  end
+
+  # Strong Parameters to filter form params
   private
     def article_params
       params.require(:article).permit(:title, :body)
